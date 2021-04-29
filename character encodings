@@ -1,0 +1,21 @@
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_cleaning.ex4 import *
+print("Setup Complete")
+# modules we'll use
+import pandas as pd
+import numpy as np
+
+# helpful character encoding module
+import chardet
+
+# set seed for reproducibility
+np.random.seed(0)
+sample_entry = b'\xa7A\xa6n'
+print(sample_entry)
+print('data type:', type(sample_entry))
+before = "big5-tw"
+# Check your answer
+type(before)
+after = before.encode("utf-8", errors="replace")
+type(after)
