@@ -1,0 +1,41 @@
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_cleaning.ex1 import *
+print("Setup Complete")
+# modules we'll use
+import pandas as pd
+import numpy as np
+
+# read in all our data
+sf_permits = pd.read_csv("../input/building-permit-applications-data/Building_Permits.csv")
+
+# set seed for reproducibility
+np.random.seed(0) 
+# TODO: Your code here!
+sf_permits.head()
+# Check your answer (Run this code cell to receive credit!)
+missing_values_count = sf_permits.isnull().sum()
+# Line below will give you a hint
+missing_values_count[0:10]
+# TODO: Your code here!
+total_cells = np.product(sf_permits.shape)
+total_missing = missing_values_count.sum()
+percent_missing = (total_missing/total_cells) * 100
+print(percent_missing)
+# Lines below will give you a hint or solution code
+missing_values_count[0:10]
+# Check your answer (Run this code cell to receive credit!)
+sf_permits.dropna()
+# Line below will give you a hint
+columns_with_na_dropped = sf_permits.dropna(axis=1)
+columns_with_na_dropped.head()
+print("Columns in original dataset: %d \n" % sf_permits.shape[1])
+print("Columns with na dropped: %d" % columns_with_na_dropped.shape[1])
+print("Columns in original dataset: %d \n" % sf_permits.shape[1])
+print("Columns with na dropped: %d" % columns_with_na_dropped.shape[1])
+sf_permits_with_na_dropped = 5
+dropped_columns = 12
+# TODO: Your code here
+sf_permits_with_na_imputed = nfl_data.loc[:, 'EPA':'Season'].head()
+# Check your answer
+subset_sf_permits
